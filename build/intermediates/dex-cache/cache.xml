@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="D:\AndroidStudioProjects\PlankTimer1\app\build\intermediates\pre-dexed\debug\ormlite-core-4.48-9a8b365837ec4fe09cbe82e751f6d41ebcdc1958.jar"
+        jar="D:\AndroidStudioProjects\PlankTimer1\app\libs\ormlite-core-4.48.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="e579bd2905d0399af5029aaaf9817d5fa0ca88a5"/>
+    <item
+        dex="D:\AndroidStudioProjects\PlankTimer1\app\build\intermediates\pre-dexed\debug\butterknife-5.1.0-7e8c50c802e287daf5cc936b76fe40e95a9eee02.jar"
+        jar="D:\AndroidStudioProjects\PlankTimer1\app\libs\butterknife-5.1.0.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="42e2b5bbe9a148d09d58f78362d02fcfa505c4d2"/>
+    <item
+        dex="D:\AndroidStudioProjects\PlankTimer1\app\build\intermediates\pre-dexed\debug\ormlite-android-4.48-44102cae6f2c4deb2edb7d585cbcf51eb7e501cc.jar"
+        jar="D:\AndroidStudioProjects\PlankTimer1\app\libs\ormlite-android-4.48.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="afa06f539a4026c10b247386312aa67404b80a16"/>
+    <item
+        dex="D:\AndroidStudioProjects\PlankTimer1\app\build\intermediates\pre-dexed\debug\support-v4-19.1.0-7bfbcb2e75ed1e7bc44adb206d2e9c59e4d0941c.jar"
+        jar="E:\adt-bundle-windows-x86_64-20140321\sdk\extras\android\m2repository\com\android\support\support-v4\19.1.0\support-v4-19.1.0.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67"/>
+    <item
+        dex="D:\AndroidStudioProjects\PlankTimer1\app\build\intermediates\pre-dexed\debug\classes-dc1e4b675c28f1f7729a7a6b7dbeb37891c129b2.jar"
+        jar="D:\AndroidStudioProjects\PlankTimer1\build\intermediates\exploded-aar\com.android.support\appcompat-v7\19.1.0\classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="3499ceba05ca1f6037c6a2fad73df8f636224a28"/>
+
+</pre-dex-items>
