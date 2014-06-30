@@ -1,13 +1,5 @@
 package com.planktimer.fragment;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.Timer;
-import java.util.TimerTask;
-
-import android.annotation.SuppressLint;
 import android.app.Service;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -15,6 +7,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,14 +17,21 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
-import butterknife.OnClick;
 
 import com.hs.planktimer.R;
 import com.planktimer.database.DatabaseMan;
 import com.planktimer.database.Records;
-import com.planktimer.utils.DateUtil;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+import butterknife.OnClick;
+import utils.DateUtil;
 
 /**
  * fragment for main ; show time and record it
@@ -55,7 +55,7 @@ public class MainFragment extends Fragment{
 	private ArrayAdapter<String> mArrayAdapter;
 	private ArrayList<String> mDataList = new ArrayList<String>();
 	
-	private LinkedList<HashMap<Integer, Integer>> mData = new LinkedList<HashMap<Integer, Integer>>();
+	private StringBuffer mData = new StringBuffer();
 	public static final int SPORTING = 1; 
 	public static final int IDLE = 0; 
 	
@@ -112,11 +112,21 @@ public class MainFragment extends Fragment{
 	public void startTimer(){
 		mIsRunning = !mIsRunning;
 		if (!mIsRunning) {
+			if (mLastOrient) {
+				mTotalPlankTime += mHour*3600 + mMin*60 +mSec; // 记录运动时间 单位s
+			}
+			mData.append(mHour*3600 + mMin*60 +mSec+";");
+			mDataList.add(mTimeText.getText().toString());
+			mArrayAdapter.notifyDataSetChanged();
+			mMin = 0;
+			mSec = 0;
+			mTimeText.setText("00:00");
 			Records record = new Records();
 			record.setRecordTime(DateUtil.getCurrentTime());
-			record.setRecordDate(mData.toString());
+			record.setRecordData(mData.toString());
 			record.setTotalplanktime(mTotalPlankTime);
 			record.setTotaltime(mTotalTime);
+			record.setRecordDate(DateUtil.getDateSomeday(0));
 			mMan.addRecord(record);
 		}
 	}
@@ -139,16 +149,14 @@ public class MainFragment extends Fragment{
              } 
              
              if (mGoUp != mLastOrient) {
-            	 HashMap<Integer, Integer> reMap = new HashMap<Integer,Integer>();
-            	 //record 
+            	 //record
  				if (mLastOrient) {
+					mData.append(mHour*3600 + mMin*60 +mSec+";");
 					mTotalPlankTime += mHour*3600 + mMin*60 +mSec; // 记录运动时间 单位s
-					reMap.put(SPORTING, mHour*3600 + mMin*60 +mSec);
  				}else {
- 					reMap.put(IDLE, mHour*3600 + mMin*60 +mSec);
+					mData.append(mHour * 3600 + mMin * 60 + mSec + ";");
 				}
  				 mTotalTime += mHour*3600 + mMin*60 +mSec;	// 记录总时间
- 				 mData.add(reMap);
             	 mDataList.add(mTimeText.getText().toString());
             	 mArrayAdapter.notifyDataSetChanged();
             	 mMin = 0;
@@ -191,10 +199,9 @@ public class MainFragment extends Fragment{
 	/**
 	 * handler 4 refresh timetext;
 	 */
-	@SuppressLint("HandlerLeak")
-	Handler timeHandler = new Handler(){
-		public void handleMessage(android.os.Message msg) {
-			
+	Handler timeHandler = new Handler(new Handler.Callback(){
+		@Override
+		public boolean handleMessage(Message message) {
 			if (mSec < 10) {
 				mStrSec  = "0"+mSec;
 			}else {
@@ -206,6 +213,7 @@ public class MainFragment extends Fragment{
 				mStrMin = "" + mMin;
 			}
 			mTimeText.setText(mStrMin+":"+mStrSec);
-		};
-	};
+			return false;
+		}
+	});
 }

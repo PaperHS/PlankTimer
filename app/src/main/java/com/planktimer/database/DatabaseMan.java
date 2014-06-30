@@ -5,9 +5,10 @@ import java.util.List;
 
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.stmt.QueryBuilder;
-import com.planktimer.utils.LogUtil;
 
 import android.content.Context;
+
+import utils.LogUtil;
 
 /**
  * manul of database
@@ -35,7 +36,7 @@ public class DatabaseMan {
 		try {
 			this.mRecordsDao = mHelper.getRecordsDao();
 		} catch (SQLException e) {
-			LogUtil.e(TAG+":"+e.getMessage());
+			LogUtil.e(TAG + ":" + e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -95,7 +96,20 @@ public class DatabaseMan {
 			e.printStackTrace();
 		}
 	}
-	
+
+	public List<Records> getRecordsByDate(String date){
+		QueryBuilder<Records,Integer> builder = mRecordsDao.queryBuilder();
+		List<Records> result = null;
+		try{
+			builder.where().eq("recordDate",date);
+			result = builder.query();
+			LogUtil.d("sdf:"+result.size());
+		}catch (SQLException e){
+			e.printStackTrace();
+			LogUtil.e("database:"+e.getMessage());
+		}
+		return result;
+	}
 	/**
 	 * query by Fuzzy TODO
 	 */

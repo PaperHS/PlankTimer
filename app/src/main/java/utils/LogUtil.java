@@ -1,4 +1,4 @@
-package com.planktimer.utils;
+package utils;
 
 import android.util.Log;
 
@@ -60,16 +60,16 @@ public class LogUtil
 
 	public static void d(String tag, String msg) {
 		if (isDebug)
-			Log.d(tag, msg);
+			Log.i(tag, msg);
 	}
 
 	public static void e(String tag, String msg) {
 		if (isDebug)
-			Log.e(tag, msg);
+			Log.i(tag, msg);
 	}
 
 	public static void v(String tag, String msg) {
 		if (isDebug)
-			Log.v(tag, msg);
+			Log.i(tag, msg);
 	}
 }

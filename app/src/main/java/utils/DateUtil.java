@@ -1,4 +1,4 @@
-package com.planktimer.utils;
+package utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -7,6 +7,9 @@ import java.util.Locale;
 
 public class DateUtil
 {
+
+	public static final int Min = 60;
+	public static final int Hour = Min*60;
 	/**
 	 * Get current time stamp.
 	 * 
@@ -85,5 +88,49 @@ public class DateUtil
 		}
 
 		return date;
+	}
+
+	/**
+	 * second to HH:MM:SS
+	 *
+	 * String sec;
+	 */
+	public static String SecToFormat(String sec){
+		StringBuffer sb = new StringBuffer();
+		int hour = Integer.parseInt(sec)/Hour;
+		int min = (Integer.parseInt(sec)-hour*Hour)/Min;
+		int secnew = (Integer.parseInt(sec)-hour*Hour-min*Min);
+		sb.append(hour);
+		sb.append(":");
+		sb.append(min);
+		sb.append(":");
+		sb.append(secnew);
+		return  sb.toString();
+	}
+
+	/**
+	 * get HH:MM:SS form sec
+	 * @param format
+	 * @return
+	 */
+	public static String FormatToSec(String format){
+		String[] time = format.split(":");
+		if (time.length != 3){
+			LogUtil.e("FormatToSec:Fromat error!");
+			return "";
+		}else {
+			int sec = Integer.parseInt(time[0])*Hour+Integer.parseInt(time[1])*Min+Integer.parseInt(time[2]);
+			return Integer.toString(sec);
+		}
+	}
+
+	public static String getDateSomeday(int before){
+		Calendar ca = Calendar.getInstance();
+		ca.setTime(new Date());
+		ca.add(Calendar.DAY_OF_MONTH,before);
+		String currentTime = new SimpleDateFormat(
+				"MM-dd", Locale.getDefault()).format(
+				ca.getTime()).toString();
+		return currentTime;
 	}
 }

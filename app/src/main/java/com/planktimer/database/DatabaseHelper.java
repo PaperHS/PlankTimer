@@ -10,7 +10,8 @@ import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
-import com.planktimer.utils.LogUtil;
+
+import utils.LogUtil;
 
 /**
  * database helper
@@ -25,7 +26,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper{
 
 	private Dao<Records, Integer> mRecordsDao = null;
 	private static final String DB_NAME = "records.db";
-	private static final int DB_VERSION = 1;
+	private static final int DB_VERSION = 2;
 	
 	public DatabaseHelper(Context context) {
 		super(context, DB_NAME, null, DB_VERSION);
@@ -43,7 +44,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper{
 		try {
 			TableUtils.createTableIfNotExists(connectionSource, Records.class);
 		} catch (java.sql.SQLException e) {
-			LogUtil.e("[databasehelpr:]"+e.getMessage());
+			LogUtil.e("[databasehelpr:]" + e.getMessage());
 			e.printStackTrace();
 		}
 	}

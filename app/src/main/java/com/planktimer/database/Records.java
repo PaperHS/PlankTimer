@@ -26,6 +26,7 @@ public class Records implements Serializable{
 	//the time when you add
 	public static final String RECORDTIME = "recordtime";
 	public static final String RECORDDATE = "recorddate";
+	public static final String RECORDDATA = "recorddata";
 	//the total time of you sports
 	public static final String TOTALTIME = "totaltime";
 	//the plank total time at this time
@@ -37,8 +38,14 @@ public class Records implements Serializable{
 	private String username;
 	@DatabaseField(useGetSet=true,columnName=RECORDTIME)
 	private String recordTime;
+
+
+
+
 	@DatabaseField(useGetSet=true,columnName=RECORDDATE)
 	private String recordDate;
+	@DatabaseField(useGetSet=true,columnName=RECORDDATA)
+	private String recordData;
 	@DatabaseField(useGetSet=true,columnName=TOTALTIME)
 	private int totaltime;
 	@DatabaseField(useGetSet=true,columnName=TOTALPLANKTIME)
@@ -87,7 +94,15 @@ public class Records implements Serializable{
 		this.recordTime = recordTime;
 	}
 
-	public String  getRecordDate() {
+	public String getRecordData() {
+		return recordData;
+	}
+
+	public void setRecordData(String recordData) {
+		this.recordData = recordData;
+	}
+
+	public String getRecordDate() {
 		return recordDate;
 	}
 

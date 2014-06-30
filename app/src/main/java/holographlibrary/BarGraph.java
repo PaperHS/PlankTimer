@@ -139,20 +139,28 @@ public class BarGraph extends View {
 
                 this.p.setColor(p.getColor());
                 this.p.setAlpha(255);
-                canvas.drawRect(r, this.p);
+				if (p.getValue() != 0)
+                	canvas.drawRect(r, this.p);
                 this.p.setTextSize(20);
                 canvas.drawText(p.getName(), (int) (((r.left + r.right) / 2) - (this.p.measureText(p.getName()) / 2)), getHeight() - 5, this.p);
                 if (showBarText) {
-                    this.p.setTextSize(40);
-                    this.p.setColor(Color.WHITE);
-                    this.p.getTextBounds(unit + p.getValue(), 0, 1, r2);
-                    if (popup != null)
-                        popup.setBounds((int) (((r.left + r.right) / 2) - (this.p.measureText(unit + p.getValue()) / 2)) - 14, r.top + (r2.top - r2.bottom) - 26, (int) (((r.left + r.right) / 2) + (this.p.measureText(unit + p.getValue()) / 2)) + 14, r.top);
-                    popup.draw(canvas);
+                    this.p.setTextSize(16);
+                    this.p.setColor(Color.BLACK);
+                    this.p.getTextBounds(p.getValue()+unit, 0, 1, r2);
+//                    if (popup != null)
+//                        popup.setBounds((int) (((r.left + r.right) / 2) - (this.p.measureText(unit + p.getValue()) / 2)) - 14, r.top + (r2.top - r2.bottom) - 26, (int) (((r.left + r.right) / 2) + (this.p.measureText(unit + p.getValue()) / 2)) + 14, r.top);
+//                    popup.draw(canvas);
+					String text;
+					int pValue = (int)p.getValue();
+					if (p.getValue()>3600){
+						text = pValue/3600 +"h"+pValue%3600/60 +"m"+pValue%60;
+					}else {
+						text = pValue/60 +"m"+pValue%60;
+					}
                     if (isAppended())
-                        canvas.drawText(p.getValue() + unit, (int) (((r.left + r.right) / 2) - (this.p.measureText(unit + p.getValue()) / 2)), r.top - 20, this.p);
+                        canvas.drawText(text + unit, (int) (((r.left + r.right) / 2) - (this.p.measureText(unit + p.getValue()) / 2)), r.top - 20, this.p);
                     else
-                        canvas.drawText(unit + p.getValue(), (int) (((r.left + r.right) / 2) - (this.p.measureText(unit + p.getValue()) / 2)), r.top - 20, this.p);
+                        canvas.drawText(text, (int) (((r.left + r.right) / 2) - (this.p.measureText(unit + p.getValue()) / 2)), r.top - 20, this.p);
                 }
                 if (indexSelected == count && listener != null) {
                     this.p.setColor(Color.parseColor("#33B5E5"));
