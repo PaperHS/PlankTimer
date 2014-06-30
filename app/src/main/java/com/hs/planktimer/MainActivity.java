@@ -6,6 +6,7 @@ import java.util.TimerTask;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
+import com.planktimer.fragment.AnalyzeFragment;
 import com.planktimer.fragment.MainFragment;
 
 import android.annotation.SuppressLint;
@@ -77,7 +78,10 @@ public class MainActivity extends ActionBarActivity implements
 			fragmentManager.beginTransaction()
 				.replace(R.id.container, new MainFragment()).commit();
 			break;
-
+			case 1:
+				fragmentManager.beginTransaction()
+						.replace(R.id.container, new AnalyzeFragment()).commit();
+				break;
 		default:
 			break;
 		}

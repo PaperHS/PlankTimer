@@ -5,7 +5,7 @@
 
     <holographlibrary.BarGraph
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="400dp"
         android:id="@+id/analyze_bargraph"/>
 
 </LinearLayout>

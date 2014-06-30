@@ -949,6 +949,7 @@ containing a value of this type.
         public static final int action_settings=0x7f070045;
         public static final int activity_chooser_view_content=0x7f070025;
         public static final int always=0x7f07000f;
+        public static final int analyze_bargraph=0x7f070040;
         public static final int beginning=0x7f07000a;
         public static final int checkbox=0x7f07002d;
         public static final int collapseActionView=0x7f070011;
@@ -965,7 +966,6 @@ containing a value of this type.
         public static final int fragment_main_btn_start=0x7f070043;
         public static final int fragment_main_listview_record=0x7f070044;
         public static final int fragment_main_tv_timer=0x7f070042;
-        public static final int graph=0x7f070040;
         public static final int home=0x7f070017;
         public static final int homeAsUp=0x7f070005;
         public static final int icon=0x7f07002a;
