@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="plank_too_less">#46485f</color>
+    <color name="plank_time_normal">#45b97c</color>
+    <color name="plank_time_great">#1d953f</color>
+    <color name="plank_time_unbelieveable">#d71345</color>
+
+</resources>

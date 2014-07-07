@@ -38,10 +38,6 @@ public class Records implements Serializable{
 	private String username;
 	@DatabaseField(useGetSet=true,columnName=RECORDTIME)
 	private String recordTime;
-
-
-
-
 	@DatabaseField(useGetSet=true,columnName=RECORDDATE)
 	private String recordDate;
 	@DatabaseField(useGetSet=true,columnName=RECORDDATA)

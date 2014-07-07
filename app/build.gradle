@@ -19,9 +19,9 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:+'
-    compile 'com.android.support:appcompat-v7:+'
     compile files('libs/butterknife-5.1.0.jar')
     compile files('libs/ormlite-android-4.48.jar')
     compile files('libs/ormlite-core-4.48.jar')
+    compile 'com.android.support:support-v4:19.+'
+    compile 'com.android.support:appcompat-v7:+'
 }

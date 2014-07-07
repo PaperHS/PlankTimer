@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.hs.planktimer.PreferenceKey;
 import com.hs.planktimer.R;
 import com.planktimer.database.DatabaseMan;
 import com.planktimer.database.Records;
@@ -32,6 +33,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 import utils.DateUtil;
+import utils.PreferenceUtils;
 
 /**
  * fragment for main ; show time and record it
@@ -61,6 +63,8 @@ public class MainFragment extends Fragment{
 	
 	private int mTotalTime;
 	private int mTotalPlankTime;
+
+	private int mTopTime;
 	
 	@InjectView(R.id.fragment_main_tv_timer) TextView mTimeText;
 	@InjectView(R.id.fragment_main_listview_record) ListView mRecords;
@@ -71,6 +75,7 @@ public class MainFragment extends Fragment{
 		getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 		super.onCreate(savedInstanceState);
 		mMan = new DatabaseMan(getActivity());
+		mTopTime = PreferenceUtils.getPrefInt(getActivity(), PreferenceKey.TOP_TIME_PLANK, 0);
 	}
 	
 	@Override
@@ -121,6 +126,10 @@ public class MainFragment extends Fragment{
 			mMin = 0;
 			mSec = 0;
 			mTimeText.setText("00:00");
+			if (mTotalPlankTime > mTopTime){
+				PreferenceUtils.setPrefInt(getActivity(),PreferenceKey.TOP_TIME_PLANK, mTotalPlankTime);
+				//TODO POP
+			}
 			Records record = new Records();
 			record.setRecordTime(DateUtil.getCurrentTime());
 			record.setRecordData(mData.toString());
@@ -142,9 +151,9 @@ public class MainFragment extends Fragment{
 			 x = event.values[0];  
              y = event.values[1];  
              z = event.values[2]; 
-             if (z > 8) {
+             if (z > 5) {
             	 mGoUp = true;
-             }else if (z < -8) {
+             }else if (z < -5) {
 				mGoUp = false;
              } 
              

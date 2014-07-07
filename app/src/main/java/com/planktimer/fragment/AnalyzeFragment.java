@@ -47,21 +47,30 @@ public class AnalyzeFragment extends Fragment {
 
 		for(int i = 0; i<10; i++){
 			Bar bar = new Bar();
-			bar.setColor(Color.parseColor("#99CC00"));
+//			bar.setColor(Color.parseColor("#99CC00"));
 			bar.setName(DateUtil.getDateSomeday(-i));
 			List<Records> res =mDatabaseMan.getRecordsByDate(DateUtil.getDateSomeday(-i));
+			int totalTime = 0;
 			if (res == null || res.size()==0){
-				bar.setValue(0);
 			}else if(res.size()==1){
-				bar.setValue(res.get(0).getTotalplanktime());
+				totalTime = res.get(0).getTotalplanktime();
 			}else{
 				int total = 0;
 				for(Records re :res){
-					total += re.getTotalplanktime();
+					totalTime += re.getTotalplanktime();
 				}
-				bar.setValue(total);
 				LogUtil.d("res = "+total);
 			}
+			if (totalTime < 120){
+				bar.setColor(getResources().getColor(R.color.plank_too_less));
+			}else if(totalTime >= 120 && totalTime < 240){
+				bar.setColor(getResources().getColor(R.color.plank_time_normal));
+			}else if(totalTime >= 240 && totalTime < 480){
+				bar.setColor(getResources().getColor(R.color.plank_time_great));
+			}else if(totalTime >= 480){
+				bar.setColor(getResources().getColor(R.color.plank_time_unbelieveable));
+			}
+			bar.setValue(totalTime);
 			points.add(bar);
 			bar = null;
 			res.clear();
