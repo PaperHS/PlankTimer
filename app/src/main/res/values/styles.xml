@@ -17,4 +17,10 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
+    <style name="FragmentTransactStyle">
+        <item name="android:fragmentOpenEnterAnimation" >@anim/fragment_in</item>
+        <item name="android:fragmentOpenExitAnimation">@anim/fragment_out</item>
+
+    </style>
+
 </resources>

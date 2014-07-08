@@ -5,6 +5,10 @@ import java.util.TimerTask;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import cn.sharesdk.framework.Platform;
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.onekeyshare.OnekeyShare;
+import cn.sharesdk.tencent.qzone.QZone;
 
 import com.planktimer.fragment.AnalyzeFragment;
 import com.planktimer.fragment.MainFragment;
@@ -20,6 +24,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
@@ -45,14 +50,19 @@ public class MainActivity extends ActionBarActivity implements
 	 * {@link #restoreActionBar()}.
 	 */
 	private CharSequence			 mTitle;
-	
+
+	private MainFragment mMainFragment = new MainFragment();
+	private AnalyzeFragment mAnalyzeFragment= new AnalyzeFragment();
+
 
 	@InjectView(R.id.main_tv_timer2) TextView mTimeText;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
+//		mMainFragment = new MainFragment();
+//		mAnalyzeFragment = new AnalyzeFragment();
+		ShareSDK.initSDK(this,"240a3a2d0700");
 		mNavigationDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager()
 				.findFragmentById(R.id.navigation_drawer);
 		mTitle = getTitle();
@@ -62,10 +72,12 @@ public class MainActivity extends ActionBarActivity implements
 				(DrawerLayout) findViewById(R.id.drawer_layout));
 		ButterKnife.inject(this);
 
+
 	}
 	
 	@Override
 	protected void onDestroy() {
+		ShareSDK.stopSDK(this);
 		super.onDestroy();
 	}
 	
@@ -76,11 +88,15 @@ public class MainActivity extends ActionBarActivity implements
 		switch (position) {
 		case 0:
 			fragmentManager.beginTransaction()
-				.replace(R.id.container, new MainFragment()).commit();
+				.setCustomAnimations(R.anim.fragment_in,R.anim.fragment_out)
+				.replace(R.id.container, new MainFragment())
+					.commitAllowingStateLoss();
 			break;
-			case 1:
+		case 1:
 				fragmentManager.beginTransaction()
-						.replace(R.id.container, new AnalyzeFragment()).commit();
+						.setCustomAnimations(R.anim.fragment_in,R.anim.fragment_out)
+						.replace(R.id.container, new AnalyzeFragment())
+						.commitAllowingStateLoss();
 				break;
 		default:
 			break;
@@ -132,6 +148,31 @@ public class MainActivity extends ActionBarActivity implements
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
+			OnekeyShare oks = new OnekeyShare();
+			//关闭sso授权
+			oks.disableSSOWhenAuthorize();
+
+			// 分享时Notification的图标和文字
+			oks.setNotification(R.drawable.ic_launcher, getString(R.string.app_name));
+			// title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间使用
+			oks.setTitle(getString(R.string.share));
+			// titleUrl是标题的网络链接，仅在人人网和QQ空间使用
+			oks.setTitleUrl("http://sharesdk.cn");
+			// text是分享文本，所有平台都需要这个字段
+			oks.setText("我是分享文本");
+			// imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
+//			oks.setImagePath("/sdcard/test.jpg");
+			// url仅在微信（包括好友和朋友圈）中使用
+			oks.setUrl("http://sharesdk.cn");
+			// comment是我对这条分享的评论，仅在人人网和QQ空间使用
+			oks.setComment("我是测试评论文本");
+			// site是分享此内容的网站名称，仅在QQ空间使用
+			oks.setSite(getString(R.string.app_name));
+			// siteUrl是分享此内容的网站地址，仅在QQ空间使用
+			oks.setSiteUrl("http://sharesdk.cn");
+
+			// 启动分享GUI
+			oks.show(this);
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

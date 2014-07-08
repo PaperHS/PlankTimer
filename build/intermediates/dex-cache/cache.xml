@@ -2,23 +2,11 @@
 <pre-dex-items>
 
     <item
-        dex="D:\AndroidStudioProjects\PlankTimer1\app\build\intermediates\pre-dexed\debug\ormlite-core-4.48-9a8b365837ec4fe09cbe82e751f6d41ebcdc1958.jar"
-        jar="D:\AndroidStudioProjects\PlankTimer1\app\libs\ormlite-core-4.48.jar"
+        dex="D:\AndroidStudioProjects\PlankTimer1\app\build\intermediates\pre-dexed\debug\ShareSDK-SinaWeibo-2.3.9-01994a513d461b1467d8ff6f81d85fe94fc79a7e.jar"
+        jar="D:\AndroidStudioProjects\PlankTimer1\app\libs\ShareSDK-SinaWeibo-2.3.9.jar"
         jumboMode="false"
         revision="19.1.0"
-        sha1="e579bd2905d0399af5029aaaf9817d5fa0ca88a5"/>
-    <item
-        dex="D:\AndroidStudioProjects\PlankTimer1\app\build\intermediates\pre-dexed\debug\butterknife-5.1.0-7e8c50c802e287daf5cc936b76fe40e95a9eee02.jar"
-        jar="D:\AndroidStudioProjects\PlankTimer1\app\libs\butterknife-5.1.0.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="42e2b5bbe9a148d09d58f78362d02fcfa505c4d2"/>
-    <item
-        dex="D:\AndroidStudioProjects\PlankTimer1\app\build\intermediates\pre-dexed\debug\ormlite-android-4.48-44102cae6f2c4deb2edb7d585cbcf51eb7e501cc.jar"
-        jar="D:\AndroidStudioProjects\PlankTimer1\app\libs\ormlite-android-4.48.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="afa06f539a4026c10b247386312aa67404b80a16"/>
+        sha1="388557f8e0e535c0182c8a98e5c9bac880551cda"/>
     <item
         dex="D:\AndroidStudioProjects\PlankTimer1\app\build\intermediates\pre-dexed\debug\support-v4-19.1.0-7bfbcb2e75ed1e7bc44adb206d2e9c59e4d0941c.jar"
         jar="E:\adt-bundle-windows-x86_64-20140321\sdk\extras\android\m2repository\com\android\support\support-v4\19.1.0\support-v4-19.1.0.jar"
@@ -26,10 +14,160 @@
         revision="19.1.0"
         sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67"/>
     <item
+        dex="D:\AndroidStudioProjects\PlankTimer1\app\build\intermediates\pre-dexed\debug\ShareSDK-Dropbox-2.3.9-3ccadf5f40b3e3b64f3eb27c5fdb666b6e7983b0.jar"
+        jar="D:\AndroidStudioProjects\PlankTimer1\app\libs\ShareSDK-Dropbox-2.3.9.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="63f2d75ed353196857bddc9c1c52ce26ba456c74"/>
+    <item
+        dex="D:\AndroidStudioProjects\PlankTimer1\app\build\intermediates\pre-dexed\debug\ShareSDK-Twitter-2.3.9-ed41d1ee71c82b7b8d306ae5d4b8e4f210004f3e.jar"
+        jar="D:\AndroidStudioProjects\PlankTimer1\app\libs\ShareSDK-Twitter-2.3.9.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="4d99a115a3202084e2e62e638b42839f5eefd337"/>
+    <item
+        dex="D:\AndroidStudioProjects\PlankTimer1\app\build\intermediates\pre-dexed\debug\ormlite-core-4.48-9a8b365837ec4fe09cbe82e751f6d41ebcdc1958.jar"
+        jar="D:\AndroidStudioProjects\PlankTimer1\app\libs\ormlite-core-4.48.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="e579bd2905d0399af5029aaaf9817d5fa0ca88a5"/>
+    <item
+        dex="D:\AndroidStudioProjects\PlankTimer1\app\build\intermediates\pre-dexed\debug\ShareSDK-GooglePlus-2.3.9-7af8757389b576a3104609eea8e11e0ac539b8ef.jar"
+        jar="D:\AndroidStudioProjects\PlankTimer1\app\libs\ShareSDK-GooglePlus-2.3.9.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="8af99a36549cb94be591ef249fd42fe302f931d9"/>
+    <item
+        dex="D:\AndroidStudioProjects\PlankTimer1\app\build\intermediates\pre-dexed\debug\ShareSDK-Email-2.3.9-5d77894d73cc3d9caf11ee20ff961cd71c9aaaa1.jar"
+        jar="D:\AndroidStudioProjects\PlankTimer1\app\libs\ShareSDK-Email-2.3.9.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="f64ead5eb1731ea1de938934913e0b180a2ab7ed"/>
+    <item
+        dex="D:\AndroidStudioProjects\PlankTimer1\app\build\intermediates\pre-dexed\debug\ShareSDK-TencentWeibo-2.3.9-b5c24d4c4a15edffbe4c9a30323e2e25da46ac26.jar"
+        jar="D:\AndroidStudioProjects\PlankTimer1\app\libs\ShareSDK-TencentWeibo-2.3.9.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="2be54cb6d386ba493543dd088d1096c112474f2a"/>
+    <item
+        dex="D:\AndroidStudioProjects\PlankTimer1\app\build\intermediates\pre-dexed\debug\ShareSDK-Core-2.3.9-48ad50ee60852427894f0a61279a7c4a78794e65.jar"
+        jar="D:\AndroidStudioProjects\PlankTimer1\app\libs\ShareSDK-Core-2.3.9.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="8cc4aabf9ca73d1b35432398afb26f63655d31f4"/>
+    <item
+        dex="D:\AndroidStudioProjects\PlankTimer1\app\build\intermediates\pre-dexed\debug\ShareSDK-QQ-2.3.9-8c00a32ea147cf8378fa47f39562c690117ec608.jar"
+        jar="D:\AndroidStudioProjects\PlankTimer1\app\libs\ShareSDK-QQ-2.3.9.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="c8ff3a287161ef8996e2177dc1b46465135c74b0"/>
+    <item
+        dex="D:\AndroidStudioProjects\PlankTimer1\app\build\intermediates\pre-dexed\debug\butterknife-5.1.0-7e8c50c802e287daf5cc936b76fe40e95a9eee02.jar"
+        jar="D:\AndroidStudioProjects\PlankTimer1\app\libs\butterknife-5.1.0.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="42e2b5bbe9a148d09d58f78362d02fcfa505c4d2"/>
+    <item
+        dex="D:\AndroidStudioProjects\PlankTimer1\app\build\intermediates\pre-dexed\debug\ShareSDK-Renren-2.3.9-64e32d10fb3ba45b95a9a41dfd458eaf0485715e.jar"
+        jar="D:\AndroidStudioProjects\PlankTimer1\app\libs\ShareSDK-Renren-2.3.9.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="2c2f5310f262939eb2325c8c48525d19f4d706f9"/>
+    <item
+        dex="D:\AndroidStudioProjects\PlankTimer1\app\build\intermediates\pre-dexed\debug\ShareSDK-Wechat-Core-2.3.9-489a5226bc49331ede708e10e898fc6876cabfa0.jar"
+        jar="D:\AndroidStudioProjects\PlankTimer1\app\libs\ShareSDK-Wechat-Core-2.3.9.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="00e000a698b74cc2118f0c5e4da4abff0ecd18b8"/>
+    <item
+        dex="D:\AndroidStudioProjects\PlankTimer1\app\build\intermediates\pre-dexed\debug\ShareSDK-Evernote-2.3.9-0fed92c9e280f7b3e871e87cb61c4ff26c052f38.jar"
+        jar="D:\AndroidStudioProjects\PlankTimer1\app\libs\ShareSDK-Evernote-2.3.9.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="21c37d5c58c1317fc025047c4ca9b07314fa2a24"/>
+    <item
+        dex="D:\AndroidStudioProjects\PlankTimer1\app\build\intermediates\pre-dexed\debug\ShareSDK-Instagram-2.3.9-6d4edd330d4a7d744e8fb789caab2f770d8b4980.jar"
+        jar="D:\AndroidStudioProjects\PlankTimer1\app\libs\ShareSDK-Instagram-2.3.9.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="6005867d0ea021e284c30d2e34216d0bdab18d66"/>
+    <item
+        dex="D:\AndroidStudioProjects\PlankTimer1\app\build\intermediates\pre-dexed\debug\ShareSDK-ShortMessage-2.3.9-dff90889f60ef5b7be34d5fc0e6035229d8bdd4f.jar"
+        jar="D:\AndroidStudioProjects\PlankTimer1\app\libs\ShareSDK-ShortMessage-2.3.9.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="0bab2177f1ad20c2b05401a90c50a4720aee9dbc"/>
+    <item
+        dex="D:\AndroidStudioProjects\PlankTimer1\app\build\intermediates\pre-dexed\debug\ShareSDK-Douban-2.3.9-a43c56b86124437fc493f47762db45c115b93d33.jar"
+        jar="D:\AndroidStudioProjects\PlankTimer1\app\libs\ShareSDK-Douban-2.3.9.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="37272089b5add87e4fccaf3084ff0198104ff47e"/>
+    <item
+        dex="D:\AndroidStudioProjects\PlankTimer1\app\build\intermediates\pre-dexed\debug\ShareSDK-Facebook-2.3.9-97ddd8d0d18fb6830c520aab564a915312a3dd9d.jar"
+        jar="D:\AndroidStudioProjects\PlankTimer1\app\libs\ShareSDK-Facebook-2.3.9.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="0da281bfa4dbf649c0cafc91b256beb50f286f45"/>
+    <item
         dex="D:\AndroidStudioProjects\PlankTimer1\app\build\intermediates\pre-dexed\debug\classes-dc1e4b675c28f1f7729a7a6b7dbeb37891c129b2.jar"
         jar="D:\AndroidStudioProjects\PlankTimer1\build\intermediates\exploded-aar\com.android.support\appcompat-v7\19.1.0\classes.jar"
         jumboMode="false"
         revision="19.1.0"
         sha1="3499ceba05ca1f6037c6a2fad73df8f636224a28"/>
+    <item
+        dex="D:\AndroidStudioProjects\PlankTimer1\app\build\intermediates\pre-dexed\debug\ShareSDK-Wechat-2.3.9-2c2a6b40e50c781d14e109b0d64ec8b55d7bb446.jar"
+        jar="D:\AndroidStudioProjects\PlankTimer1\app\libs\ShareSDK-Wechat-2.3.9.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="a25cc280dbac6440f4830cb95cd9140b3eed46c1"/>
+    <item
+        dex="D:\AndroidStudioProjects\PlankTimer1\app\build\intermediates\pre-dexed\debug\ShareSDK-YouDao-2.3.9-bfe5a9e8ca0e9863f244841ab4d47317420c9196.jar"
+        jar="D:\AndroidStudioProjects\PlankTimer1\app\libs\ShareSDK-YouDao-2.3.9.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="b2cd4f1f74448352b0ceca33fcceb802d6bc0ec8"/>
+    <item
+        dex="D:\AndroidStudioProjects\PlankTimer1\app\build\intermediates\pre-dexed\debug\ormlite-android-4.48-44102cae6f2c4deb2edb7d585cbcf51eb7e501cc.jar"
+        jar="D:\AndroidStudioProjects\PlankTimer1\app\libs\ormlite-android-4.48.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="afa06f539a4026c10b247386312aa67404b80a16"/>
+    <item
+        dex="D:\AndroidStudioProjects\PlankTimer1\app\build\intermediates\pre-dexed\debug\ShareSDK-QZone-2.3.9-6c13a8c4dd1e1339e56eb80fb74ef4634da5352b.jar"
+        jar="D:\AndroidStudioProjects\PlankTimer1\app\libs\ShareSDK-QZone-2.3.9.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="34df6884eca591ee41b3a69a2d74cfcfafeb9bd0"/>
+    <item
+        dex="D:\AndroidStudioProjects\PlankTimer1\app\build\intermediates\pre-dexed\debug\mframework-ede4e3f167b2b7fe8a05fd51a1649c2fc92856a2.jar"
+        jar="D:\AndroidStudioProjects\PlankTimer1\app\libs\mframework.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="25509058b34a5ee08dbf66e57078e3083735d200"/>
+    <item
+        dex="D:\AndroidStudioProjects\PlankTimer1\app\build\intermediates\pre-dexed\debug\ShareSDK-Line-2.3.9-1a7413d591f40424f296df6dcc064e681bdedbeb.jar"
+        jar="D:\AndroidStudioProjects\PlankTimer1\app\libs\ShareSDK-Line-2.3.9.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="2d99c95acccc450b2a710172abaad593c212c5a8"/>
+    <item
+        dex="D:\AndroidStudioProjects\PlankTimer1\app\build\intermediates\pre-dexed\debug\ShareSDK-Wechat-Moments-2.3.9-cd6151a5187d70c4f0562af49b842c6e8bf921b2.jar"
+        jar="D:\AndroidStudioProjects\PlankTimer1\app\libs\ShareSDK-Wechat-Moments-2.3.9.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="e595c45ece3adafa252a9e0caca30b38b233be82"/>
+    <item
+        dex="D:\AndroidStudioProjects\PlankTimer1\app\build\intermediates\pre-dexed\debug\ShareSDK-Wechat-Favorite-2.3.9-daa73e7fee16d3461b8fc4db2f8e32f9df41f7da.jar"
+        jar="D:\AndroidStudioProjects\PlankTimer1\app\libs\ShareSDK-Wechat-Favorite-2.3.9.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="d2f930bd63f2456b8596f82290ca3fcc8e802ca2"/>
+    <item
+        dex="D:\AndroidStudioProjects\PlankTimer1\app\build\intermediates\pre-dexed\debug\ShareSDK-Flickr-2.3.9-e3e11dd8d8b1762fe62dfbe7b8a7151aa05e20de.jar"
+        jar="D:\AndroidStudioProjects\PlankTimer1\app\libs\ShareSDK-Flickr-2.3.9.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="d66f15d90907f3b22bdaf268250be96a8478c039"/>
 
 </pre-dex-items>

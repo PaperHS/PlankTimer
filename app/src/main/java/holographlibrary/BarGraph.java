@@ -131,6 +131,7 @@ public class BarGraph extends View {
 
             int count = 0;
             for (Bar p : points) {
+
                 r.set((int) ((padding * 2) * count + padding + barWidth * count), (int) (getHeight() - bottomPadding - (usableHeight * (p.getValue() / maxValue))), (int) ((padding * 2) * count + padding + barWidth * (count + 1)), (int) (getHeight() - bottomPadding));
 
                 path.addRect(new RectF(r.left - selectPadding, r.top - selectPadding, r.right + selectPadding, r.bottom + selectPadding), Path.Direction.CW);
@@ -141,10 +142,27 @@ public class BarGraph extends View {
                 this.p.setAlpha(255);
 				if (p.getValue() != 0)
                 	canvas.drawRect(r, this.p);
-                this.p.setTextSize(20);
-                canvas.drawText(p.getName(), (int) (((r.left + r.right) / 2) - (this.p.measureText(p.getName()) / 2)), getHeight() - 5, this.p);
-                if (showBarText) {
-                    this.p.setTextSize(16);
+                this.p.setTextSize(24);
+				this.p.setColor(Color.BLACK);
+				switch(count){
+					case 0:
+						canvas.drawText("今天", (int) (((r.left + r.right) / 2) - (this.p.measureText(p.getName()) / 2)), getHeight() - 5, this.p);
+						break;
+					case 1:
+						canvas.drawText("昨天", (int) (((r.left + r.right) / 2) - (this.p.measureText(p.getName()) / 2)), getHeight() - 5, this.p);
+						break;
+					case 2:
+						canvas.drawText("前天", (int) (((r.left + r.right) / 2) - (this.p.measureText(p.getName()) / 2)), getHeight() - 5, this.p);
+						break;
+					default:
+						canvas.drawText(p.getName(), (int) (((r.left + r.right) / 2) - (this.p.measureText(p.getName()) / 2)), getHeight() - 5, this.p);
+						break;
+
+				}
+
+
+                if (showBarText && p.getValue()!= 0) {
+                    this.p.setTextSize(18);
                     this.p.setColor(Color.BLACK);
                     this.p.getTextBounds(p.getValue()+unit, 0, 1, r2);
 //                    if (popup != null)
@@ -155,7 +173,7 @@ public class BarGraph extends View {
 					if (p.getValue()>3600){
 						text = pValue/3600 +"h"+pValue%3600/60 +"m"+pValue%60;
 					}else {
-						text = pValue/60 +"m"+pValue%60;
+						text = pValue/60 +"分"+pValue%60;
 					}
                     if (isAppended())
                         canvas.drawText(text + unit, (int) (((r.left + r.right) / 2) - (this.p.measureText(unit + p.getValue()) / 2)), r.top - 20, this.p);

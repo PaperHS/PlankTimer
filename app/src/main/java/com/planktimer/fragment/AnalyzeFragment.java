@@ -7,7 +7,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.hs.planktimer.PreferenceKey;
 import com.hs.planktimer.R;
 import com.planktimer.database.DatabaseMan;
 import com.planktimer.database.Records;
@@ -22,6 +24,7 @@ import holographlibrary.Bar;
 import holographlibrary.BarGraph;
 import utils.DateUtil;
 import utils.LogUtil;
+import utils.PreferenceUtils;
 
 /**
  * Created by Peggy on 2014/6/25.
@@ -31,16 +34,17 @@ public class AnalyzeFragment extends Fragment {
 
 	@InjectView(R.id.analyze_bargraph)
 	BarGraph mBarGraph;
+	@InjectView(R.id.analyze_best_time)
+	TextView mBestTime;
+	@InjectView(R.id.analyze_Longest_streak)
+	TextView mLongestStreak;
+
 	private DatabaseMan mDatabaseMan;
+	private View view;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-	}
-
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		Random r = new Random(20);
-		View view = inflater.inflate(R.layout.fragment_analyze, container, false);
+		view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_analyze,null);
 		ButterKnife.inject(this, view);
 		ArrayList<Bar> points = new ArrayList<Bar>();
 		mDatabaseMan = new DatabaseMan(getActivity());
@@ -72,14 +76,19 @@ public class AnalyzeFragment extends Fragment {
 			}
 			bar.setValue(totalTime);
 			points.add(bar);
-			bar = null;
 			res.clear();
-			res = null;
 		}
-		mBarGraph.setUnit("s");
+		mBarGraph.setUnit("秒");
 		mBarGraph.appendUnit(true);
 		mBarGraph.setShowBarText(true);
 		mBarGraph.setBars(points);
+		mBestTime.setText("最佳单次时间："+ DateUtil.SecToFormat(Integer.toString(PreferenceUtils.getPrefInt(getActivity(),PreferenceKey.TOP_TIME_PLANK,0))));
+		mLongestStreak.setText("最长连续天数：");
+	}
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
 		return view;
 	}
 
