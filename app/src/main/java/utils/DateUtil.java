@@ -124,6 +124,20 @@ public class DateUtil
 		}
 	}
 
+	public static String secToChinese(String sec){
+		StringBuffer sb = new StringBuffer();
+		int hour = Integer.parseInt(sec)/Hour;
+		int min = (Integer.parseInt(sec)-hour*Hour)/Min;
+		int secnew = (Integer.parseInt(sec)-hour*Hour-min*Min);
+		sb.append(hour);
+		sb.append("分");
+		sb.append(min);
+		sb.append("秒");
+		sb.append(secnew);
+		return  sb.toString();
+	}
+
+
 	public static String getDateSomeday(int before){
 		Calendar ca = Calendar.getInstance();
 		ca.setTime(new Date());

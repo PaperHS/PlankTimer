@@ -82,13 +82,14 @@ public class AnalyzeFragment extends Fragment {
 		mBarGraph.appendUnit(true);
 		mBarGraph.setShowBarText(true);
 		mBarGraph.setBars(points);
-		mBestTime.setText("最佳单次时间："+ DateUtil.SecToFormat(Integer.toString(PreferenceUtils.getPrefInt(getActivity(),PreferenceKey.TOP_TIME_PLANK,0))));
-		mLongestStreak.setText("最长连续天数：");
+		mBestTime.setText("最佳单次时间："+ DateUtil.SecToFormat(Integer.toString(PreferenceUtils
+				.getPrefInt(getActivity(),PreferenceKey.TOP_TIME_PLANK,0))));
+		mLongestStreak.setText("最长连续天数："+Integer.toString(PreferenceUtils.getPrefInt(getActivity(),
+				PreferenceKey.LONGEST_TIME_STREAK, 0)));
 	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
 		return view;
 	}
 

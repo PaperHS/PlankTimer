@@ -52,7 +52,7 @@ public class MainFragment extends Fragment{
 	private SensorManager sm;
 	private Sensor sensor;
 	private Timer mTimer;
-	private boolean mIsRunning = false;
+	private boolean mIsRunning = false;//是否正在计时
 	private DatabaseMan mMan;
 	private ArrayAdapter<String> mArrayAdapter;
 	private ArrayList<String> mDataList = new ArrayList<String>();
@@ -64,8 +64,9 @@ public class MainFragment extends Fragment{
 	private int mTotalTime;
 	private int mTotalPlankTime;
 
-	private int mTopTime;
-	
+	private int mTopTime;  //最长时间
+	private int mLongestStreak;  //最长持续天数
+
 	@InjectView(R.id.fragment_main_tv_timer) TextView mTimeText;
 	@InjectView(R.id.fragment_main_listview_record) ListView mRecords;
 	@InjectView(R.id.fragment_main_btn_start) Button mStartBtn;
@@ -76,6 +77,8 @@ public class MainFragment extends Fragment{
 		super.onCreate(savedInstanceState);
 		mMan = new DatabaseMan(getActivity());
 		mTopTime = PreferenceUtils.getPrefInt(getActivity(), PreferenceKey.TOP_TIME_PLANK, 0);
+		mLongestStreak = PreferenceUtils.getPrefInt(getActivity(),
+				PreferenceKey.LONGEST_TIME_STREAK, 0);
 	}
 	
 	@Override
@@ -84,8 +87,10 @@ public class MainFragment extends Fragment{
 		View view = inflater.inflate(R.layout.fragment_main_1, container, false);
 		//init butterknife
 		ButterKnife.inject(this,view);
-		mArrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, mDataList);
+		mArrayAdapter = new ArrayAdapter<String>(getActivity(),
+				android.R.layout.simple_list_item_1, mDataList);
 		mRecords.setAdapter(mArrayAdapter);
+		mTimeText.setText("00:00");
 		return view;
 	}
 	
@@ -130,6 +135,15 @@ public class MainFragment extends Fragment{
 				PreferenceUtils.setPrefInt(getActivity(),PreferenceKey.TOP_TIME_PLANK, mTotalPlankTime);
 				//TODO POP
 			}
+			if (mMan.getRecordsByDate(DateUtil.getDateSomeday(-1)).size() < 1){
+				PreferenceUtils.setPrefInt(getActivity(),PreferenceKey.LONGEST_TIME_STREAK,1);
+			}else{
+				if (mMan.getRecordsByDate(DateUtil.getDateSomeday(-1)).size() == 1){
+					PreferenceUtils.setPrefInt(getActivity(),
+						PreferenceKey.LONGEST_TIME_STREAK,++mLongestStreak);
+				}
+			}
+
 			Records record = new Records();
 			record.setRecordTime(DateUtil.getCurrentTime());
 			record.setRecordData(mData.toString());
@@ -137,6 +151,9 @@ public class MainFragment extends Fragment{
 			record.setTotaltime(mTotalTime);
 			record.setRecordDate(DateUtil.getDateSomeday(0));
 			mMan.addRecord(record);
+			mStartBtn.setText("开始");
+		}else{
+			mStartBtn.setText("结束");
 		}
 	}
 	
@@ -157,7 +174,7 @@ public class MainFragment extends Fragment{
 				mGoUp = false;
              } 
              
-             if (mGoUp != mLastOrient) {
+             if (mGoUp != mLastOrient && mIsRunning) {
             	 //record
  				if (mLastOrient) {
 					mData.append(mHour*3600 + mMin*60 +mSec+";");
