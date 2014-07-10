@@ -2,23 +2,33 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/plank_background"
     android:orientation="vertical" >
     <TextView 
         android:id="@+id/fragment_main_tv_timer"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:textSize="90sp"
+        android:textColor="@android:color/white"
         android:gravity="center"
         />
-    <Button 
+    <ToggleButton
         android:id="@+id/fragment_main_btn_start"
+        android:background="@drawable/blurefection"
+        android:textOn="停  止"
+        android:textOff="开  始"
+        android:checked="false"
+        android:textColor="@android:color/white"
+        android:textSize="22sp"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         />
     <ListView 
         android:id="@+id/fragment_main_listview_record"
+        android:layout_marginTop="10dp"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
+        android:scrollbars="none"
         ></ListView>
 
 </LinearLayout>

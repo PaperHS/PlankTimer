@@ -4,5 +4,8 @@
     <color name="plank_time_normal">#45b97c</color>
     <color name="plank_time_great">#1d953f</color>
     <color name="plank_time_unbelieveable">#d71345</color>
+    <color name="plank_btn_start">#ff70ba67</color>
+    <color name="plank_btn_end">#ffd74267</color>
+    <color name="plank_background">#1d9f49</color>
 
 </resources>

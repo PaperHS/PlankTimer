@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="false" android:drawable="@color/plank_btn_start">
+        <shape android:shape="rectangle">
+            <corners android:radius="5dip" />
+        </shape>
+    </item>
+    <item android:state_checked="true" android:drawable="@color/plank_btn_end">
+        <shape android:shape="rectangle">
+            <corners android:radius="5dip" />
+        </shape>
+    </item>
+</selector>
